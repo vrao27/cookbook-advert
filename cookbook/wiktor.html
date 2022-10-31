@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="wiktor.css">
+    <link rel="script" href="wiktor.js"/>
+</head>
+<body>
+    <!-- ICONS -->
+    <div class="icons">
+        <img src="./img/pencil.png" alt="">
+        <img src="./img/menu.png" alt="">
+        <img src="./img/calendar.png" alt="">
+        <img src="./img/resize.png" alt="">
+        <img src="./img/ruler.png" alt="">
+        <img src="./img/share.png" alt="">
+        <img src="./img/paper.png" alt="">
+        <img src="./img/delete.png" alt="">
+        <img src="./img/dots.png" alt="">
+    </div>
+
+    <h1 id="recipe-title">TITLE</h1>
+    <hr>
+    <h4 id="recipe-description">DESCRIPTION</h4>
+    <div class="container">
+        <img src="img/easy_chicken_noodle_soup_73271_16x9.jpg" class="image" alt="" id="image" />
+        <div class="overlay">
+          <div class="text">SD</div>
+        </div>
+      </div>
+
+    <div style="display: flex; justify-content: space-between;">
+        <div class="d-flex flex-column">
+            <h3 id="name">NAME</h3>
+            <h4 id="tagline">SOMET</h4>
+        </div>
+        <div class="d-flex flex-column">
+            <h3>Total</h3>
+            <h4 id="time-method">0 Mins</h4>
+        </div>
+    </div>  
+
+    <h3>Ingridients</h3>
+        <table id="ingridients">
+            <tr>
+                <th onclick="sortTable(0)" style="padding-right: 200px"><span class="glyphicon glyphicon-sort"></span>Ingridient</th>
+                <th onclick="sortTable(1)"><span class="glyphicon glyphicon-sort"></span>Qauntity</th>
+            </tr>
+        </table>
+    </div>
+
+    <h3 style="padding-top: 5%;">Method</h3>
+    <ul id="method-list">
+    </ul>
+
+    <img src="./img/share.png" alt="" style="display: flex;
+    justify-content: space-between;
+    max-width: 5%;" onclick="getURL();"/>
+    <script>
+
+    const recipe_title = ["Vietnamese Chicken Pho"]
+    document.getElementById('recipe-title').innerHTML = recipe_title
+    
+    const recipe_description =["Traditionally served as a breakfast soup, pho is one of the national dishes of Vietnam. This chicken pho uses a whole chicken and plenty of spices and aromatics to give the broth a really rich depth of flavour. Don't forget to screenshot the ingredients list at the bottom before you head to the shops."]
+    document.getElementById('recipe-description').innerHTML = recipe_description 
+    
+    const name = ["Wiktor Szymczyk"]
+    document.getElementById("name").innerHTML = name
+
+    const tagline = ["I know how to cook so yeah there you go!"]
+    document.getElementById("tagline").innerHTML = tagline
+
+    const time = ["5 Mins"]
+    document.getElementById("time-method").innerHTML = time
+
+    let data = [
+        { "Ingridient":"Whole Chicken", "Quant":"1.5kg"},
+        { "Ingridient":"Fish Sauce,", "Quant":"1-2 tbsp"}, 
+        { "Ingridient":"Light Brown Soft Sugar", "Quant":"2 tbsp"},
+        { "Ingridient":"Whole Cloves", "Quant":"7"},
+        { "Ingridient":"Black Peppercorns", "Quant":"1"},
+        { "Ingridient":"Star Anise", "Quant":"4"},
+        { "Ingridient":"Cinnamon Stick, Cut Into Pieces", "Quant":"1"},
+        { "Ingridient":"Onions", "Quant":"3"},
+        { "Ingridient":"Piece Ginger", "Quant":"6cm"},
+        { "Ingridient":"Garlic Bulb", "Quant":"1"}
+    ];
+
+    let table = document.getElementById('ingridients');
+    data.forEach(function(object) {
+        let tr = document.createElement('tr');
+        tr.innerHTML = '<td><hr>' + object.Ingridient + '</td>' +
+            '<td><hr>' + object.Quant + '</td>' +
+            '<td>';
+        table.appendChild(tr);
+    });
+    
+    let data2 = [
+        {"Step":"Put a 1.5kg whole chicken in a very large saucepan. Add 5ltr of cool water and slowly bring to the boil. Turn down the heat and simmer for 10 mins, then skim off any fat and scum from the surface. Turn the heat down further, to low, and simmer for another 35 mins. "},
+        {"Step":"Meanwhile, make the spice bag. Chop a small cinnamon stick into pieces and add to a small frying pan with 7 whole cloves, 1 tbsp black peppercorns and 4 whole star anise. Toast for 1-2 mins on a medium heat, until fragrant and darkened, but not scorched. Remove from the pan and lightly crush the spices (with a pestle and mortar or bash with a rolling pin), tip into the centre of a 25cm muslin square and tie into a secure bundle with kitchen string."},
+        {"Step":"For the aromatics to flavour the stock, use the flame of a gas ring to scorch 3 unpeeled onions and a 6cm piece of ginger all over. Using tongs, hold each item directly in the flame one by one, keeping hands away. Or place under a hot grill, turning the veg to blacken evenly. Cool on baking paper, then peel and discard the blackened skin. Roughly slice the flesh."},
+        {"Step":"After the 45 mins cooking time, remove the chicken from the pan and leave to cool for a few mins. Remove the skin and pick the meat from the bones, chilling the meat until needed. Put the bones and skin back into the cooking water along with the prepared spice bag, onions, ginger and 1 unpeeled bulb of garlic. Simmer over a low heat for about 2½ hrs, skimming regularly."},
+        {"Step":"When the broth has reduced by half, season with salt to taste, then carefully strain into a large bowl through a sieve or colander before returning to the rinsed-out pan. Bring to a simmer over a low heat, then add 1-2 tbsp fish sauce and 2 tbsp light brown soft sugar. "},
+        {"Step":"To assemble each pho you will need the cooked chicken meat, 600g flat rice noodles (cooked or straight-to-wok), 75g beansprouts, 5 spring onions, 2 bird's eye chillies and a handful of fresh coriander. Shred the cooked chicken, trim and finely slice the spring onions and slice the chillies. Divide all the ingredients evenly between 8 large serving bowls."},
+        {"Step":"Ladle over the hot broth. Serve with extra coriander, 2 quartered limes, extra fish sauce and chilli sauce on the side, so that everyone can add to taste. "},
+    ];
+
+    let list = document.getElementById('method-list');
+    data2.forEach(function(object) {
+        let li_a = document.createElement('ul');
+        li_a.innerHTML = '<li><a>' + object.Step + '</a>' +
+        '</li>' + '<br>';
+        list.appendChild(li_a);
+    });
+
+    function getURL() {
+        alert(window.location.href);
+    }
+</script>
+</body>
+</html>
