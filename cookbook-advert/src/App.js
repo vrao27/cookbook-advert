@@ -1,11 +1,10 @@
-import "./App.css";
+import Recipes from "./components/Recipes/Recipes";
 
 function App() {
   return (
     <>
-      <div className="App">
-        <p>Hello World</p>
-      </div>
+      <h1>CookBook</h1>
+      <Recipes />
     </>
   );
 }
