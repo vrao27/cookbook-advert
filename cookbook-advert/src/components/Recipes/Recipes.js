@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { client } from "../../services/Client";
 import { createClient } from "contentful";
+import "../Recipes/Recipe.css";
+import recipeSlide from "../recipeSlide";
 
 const Recipes = () => {
   const [isRecipeLoading, setIsRecipeLoading] = useState(false);
@@ -8,8 +10,23 @@ const Recipes = () => {
 
   //the function below fetches the data from contentful
 
+  //clean up data
 
-  const getRecipeSlides = async () => {
+  const cleanUprecipeSlides = useCallback((rawData) => {
+    const cleanSlides = rawData.map((slide) => {
+      const { sys, fields } = slide;
+      const { id } = sys;
+      const slideTitle = fields.title;
+      const slideDescription = fields.description;
+      const slideBg = fields.image.fields.file.url;
+      const updatedSlide = { id, slideTitle, slideDescription, slideBg };
+      return updatedSlide;
+    });
+    setrecipeSlides(cleanSlides);
+  }, []);
+
+  const getRecipeSlides = useCallback(async () => {
+    setIsRecipeLoading(true);
     try {
       const response = await client.getEntries({
         content_type: "kitchenGroup4",
@@ -17,19 +34,37 @@ const Recipes = () => {
       //return response;
       //response data spits out at an array with the 6 different recipe entries
       const responseData = response.items;
-      console.log(responseData);
+      //console.log(responseData);
+      //use ternary condition here
+      responseData ? cleanUprecipeSlides(responseData) : setrecipeSlides([]);
+      setIsRecipeLoading(false);
     } catch (error) {
       console.log(error);
+      setIsRecipeLoading(false);
     }
-  };
+  }, [cleanUprecipeSlides]);
 
   useEffect(() => {
     getRecipeSlides();
   }, [getRecipeSlides]);
 
+  if (isRecipeLoading) {
+    return <h2>Recipe Loading...</h2>;
+  }
+
   return (
     <div>
-      <h1>MyRecipes</h1>
+      {recipeSlides.map((item) => {
+        const { id, slideBg, slideTitle, slideDescription } = item;
+        return (
+          <recipeSlide
+            slideTitle={slideTitle}
+            slideBg={slideBg}
+            slideDescription={slideDescription}
+            key={id}
+          />
+        );
+      })}
     </div>
   );
 };

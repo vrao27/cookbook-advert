@@ -1,4 +1,5 @@
 import Recipes from "./components/Recipes/Recipes";
+import recipeSlide from "./components/recipeSlide";
 
 function App() {
   return (
