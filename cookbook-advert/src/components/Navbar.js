@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import theRecipesDropdown from "./RecipeDropdown";
 
 const Navbar = () => {
   return (
@@ -11,7 +12,9 @@ const Navbar = () => {
           <NavLink to="/About">About</NavLink>
         </li>
         <li>
-          <NavLink to="/Recipes">Recipes</NavLink>
+          <NavLink to="/Recipes">
+            <theRecipesDropdown />
+          </NavLink>
         </li>
         <li>
           <NavLink to="/Contact">Contact</NavLink>

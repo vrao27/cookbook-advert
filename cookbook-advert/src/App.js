@@ -1,6 +1,6 @@
 import Recipes from "./components/Recipes/Recipes";
 import recipeSlide from "./components/recipeSlide";
-import { NavLink } from "react-router-dom";
+import Navbar, { NavLink } from "./components/Navbar";
 
 function App() {
   return (
