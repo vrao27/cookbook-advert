@@ -6,7 +6,8 @@ import "./App.css";
 function App() {
   return (
     <>
-      <nav>
+      <nav className="nav-container">
+        {/* <h2>Group4Kitchen</h2> */}
         <ul className="nav-link">
           <li>
             <NavLink to="">Home</NavLink>
