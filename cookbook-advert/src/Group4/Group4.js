@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { client } from "../client";
 import Group4Slide from "./Group4Slide";
 import "./Group4.css";
+import { Recipe } from "./Recipe";
 
 // console.log(client);
 
@@ -15,10 +16,21 @@ const Group4 = () => {
     const cleanSlides = rawData.map((slide) => {
       const { sys, fields } = slide;
       const { id } = sys;
+      // console.log(fields);
       const slideTitle = fields.title;
       const slideDescription = fields.description;
+      const directions = fields.directions;
+      const ingredients = fields.ingredients;
+      // console.log(direction, ingredients);
       const slideBg = fields.image.fields.file.url;
-      const updatedSlide = { id, slideTitle, slideDescription, slideBg };
+      const updatedSlide = {
+        id,
+        slideTitle,
+        slideDescription,
+        slideBg,
+        directions,
+        ingredients,
+      };
       return updatedSlide;
     });
     setGroup4Slides(cleanSlides);
@@ -50,19 +62,24 @@ const Group4 = () => {
     return <h2>Loading...</h2>;
   }
   return (
-    <div>
-      {group4Slides.map((item) => {
-        const { id, slideBg, slideTitle, slideDescription } = item;
-        return (
-          <Group4Slide
-            slideTitle={slideTitle}
-            slideBg={slideBg}
-            slideDescription={slideDescription}
-            key={id}
-          />
-        );
-      })}
-    </div>
+    <>
+      <div>
+        {group4Slides.map((item) => {
+          const { id, slideBg, slideTitle, slideDescription } = item;
+          return (
+            <>
+              <Group4Slide
+                slideTitle={slideTitle}
+                slideBg={slideBg}
+                slideDescription={slideDescription}
+                key={id}
+              />
+              <Recipe item={item} />
+            </>
+          );
+        })}
+      </div>
+    </>
   );
 };
 

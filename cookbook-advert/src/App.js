@@ -16,7 +16,7 @@ function App() {
             <NavLink to="">About</NavLink>
           </li>
           <li>
-            <NavLink to="">Recipes</NavLink>
+            <NavLink to="/recipes">Recipes</NavLink>
           </li>
           <li>
             <NavLink to="">Contact</NavLink>
