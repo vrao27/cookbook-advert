@@ -1,14 +1,9 @@
-import TopNavBar from "./components/TopNavBar";
-import Carousel from "./components/Carousel/Carousel";
-import { Route, Routes } from "react-router-dom";
-import About from "./components/About/About";
-import PageNotFound from "./components/PageNotFound";
-import Recipe from "./components/Recipe";
 import React, { useState, useEffect, useCallback } from "react";
-import { client } from "./context/client";
+import { client } from "../../context/client";
+import CarouselSlide from "./CarouselSlide";
 import { useRef } from "react";
 
-function App() {
+const Carousel = () => {
   const [isCarouselLoading, setIsCarouselLoading] = useState(false);
   const [carouselSlides, setCarouselSlides] = useState([]);
 
@@ -54,16 +49,22 @@ function App() {
   console.log(carouselSlides);
 
   return (
-    <div className="App">
-      <TopNavBar />
-      <Routes>
-        <Route path="/" element={<Carousel />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/recipe/:id" element={<Recipe />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </div>
+    <>
+      {carouselSlides.map((item) => {
+        const { id, slideTitle, slideDescription, slideImage } = item;
+        return (
+          <>
+            <CarouselSlide
+              key={id}
+              slideTitle={slideTitle}
+              slideDescription={slideDescription}
+              slideImage={slideImage}
+            />
+          </>
+        );
+      })}
+    </>
   );
-}
+};
 
-export default App;
+export default Carousel;

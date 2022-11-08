@@ -1,16 +1,16 @@
-import TopNavBar from "./components/TopNavBar";
-import Carousel from "./components/Carousel/Carousel";
-import { Route, Routes } from "react-router-dom";
-import About from "./components/About/About";
-import PageNotFound from "./components/PageNotFound";
-import Recipe from "./components/Recipe";
+import { useParams } from "react-router-dom";
+import CarouselSlide from "./Carousel/CarouselSlide";
+import "./styles/recipe.css";
 import React, { useState, useEffect, useCallback } from "react";
-import { client } from "./context/client";
+import { client } from "../context/client";
 import { useRef } from "react";
 
-function App() {
+export default function Recipe(props) {
+  const { id } = useParams();
+  const { slideTitle, slideDescription, slideImage } = props;
   const [isCarouselLoading, setIsCarouselLoading] = useState(false);
   const [carouselSlides, setCarouselSlides] = useState([]);
+  const [count, setCount] = useState(0);
 
   const ref = useRef(null);
 
@@ -51,19 +51,27 @@ function App() {
     getCarouselSlides();
   }, [getCarouselSlides]);
 
-  console.log(carouselSlides);
+  // const nextRecipe = () => {
+  //   <Route path={`./${id}`} />;
+  // };
 
+  console.log(carouselSlides);
   return (
-    <div className="App">
-      <TopNavBar />
-      <Routes>
-        <Route path="/" element={<Carousel />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/recipe/:id" element={<Recipe />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </div>
+    <>
+      <h1>
+        {JSON.stringify(carouselSlides[id].slideTitle).replaceAll('"', "")}
+      </h1>
+
+      <img src={carouselSlides[id].slideImage} />
+      {/* <button onClick={nextRecipe}>Next</button> */}
+      {/* <h1>sddas</h1> */}
+
+      <p>
+        {JSON.stringify(carouselSlides[id].slideDescription).replaceAll(
+          '"',
+          ""
+        )}
+      </p>
+    </>
   );
 }
-
-export default App;
