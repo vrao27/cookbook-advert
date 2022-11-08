@@ -8,10 +8,6 @@ const Recipes = () => {
 
   //the function below fetches the data from contentful
 
-  // const client = createClient({
-  //   space: "9i6u4epu9w5w",
-  //   accessToken: "AMLR55hjEF2kDbwqrc6kjeAaaLCs9SmQDCrxmcHflb0",
-  // });
 
   const getRecipeSlides = async () => {
     try {
