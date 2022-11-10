@@ -1,5 +1,6 @@
 export const Recipe = ({ item }) => {
   // console.log(item);
+
   return (
     <div>
       <h1>{item.slideTitle}</h1>
