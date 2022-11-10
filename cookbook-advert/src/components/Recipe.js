@@ -51,27 +51,38 @@ export default function Recipe(props) {
     getCarouselSlides();
   }, [getCarouselSlides]);
 
-  // const nextRecipe = () => {
-  //   <Route path={`./${id}`} />;
-  // };
+  const nextRecipe = () => {
+    return true;
+  };
 
   console.log(carouselSlides);
   return (
     <>
-      <h1>
+      {/* <h1>
         {JSON.stringify(carouselSlides[id].slideTitle).replaceAll('"', "")}
       </h1>
 
       <img src={carouselSlides[id].slideImage} />
-      {/* <button onClick={nextRecipe}>Next</button> */}
-      {/* <h1>sddas</h1> */}
+      <button onClick={nextRecipe}>Next</button>
+      <h1>sddas</h1>
 
       <p>
         {JSON.stringify(carouselSlides[id].slideDescription).replaceAll(
           '"',
           ""
         )}
+      </p> */}
+      <h1 className="title">{JSON.stringify(carouselSlides[id].slideTitle)}</h1>
+      <p className="description">
+        {JSON.stringify(carouselSlides[id].slideDescription)}
       </p>
+      <div className="img-container">
+        <img
+          className="image"
+          src={carouselSlides[id].slideImage}
+          height="500px"
+        />
+      </div>
     </>
   );
 }

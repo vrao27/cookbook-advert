@@ -8,8 +8,20 @@ body {
     background-color: bisque;
 }
 
-.recipe-container h1 {
+.recipe-container {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.title {
     text-align: center;
     font-size: 1.5rem;
     padding-top: 2.5%;
+    text-align: center;
+}
+
+.img-container {
+    justify-content: center;
+    display: flex;
 }
