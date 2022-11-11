@@ -3,24 +3,33 @@ import { Home } from "./Home";
 import { About } from "./About";
 import { Recipes } from "./Recipes";
 import { Contact } from "./Contact";
+import { NotFound } from "./NotFound";
 
 export const Nav = () => {
   return (
     <div>
       <nav className="nav-container">
-        {/* <h2>Group4Kitchen</h2> */}
-        <ul className="nav-link">
+        <h2>Group4Kitchen</h2>
+        <ul className="link-container">
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink className="nav-link" to="/">
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/about">About</NavLink>
+            <NavLink className="nav-link" to="/about">
+              About
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/recipes">Recipes</NavLink>
+            <NavLink className="nav-link" to="/recipes">
+              Recipes
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/contact">Contact</NavLink>
+            <NavLink className="nav-link" to="/contact">
+              Contact
+            </NavLink>
           </li>
         </ul>
       </nav>
@@ -29,6 +38,7 @@ export const Nav = () => {
         <Route path="/about" element={<About />} />
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
