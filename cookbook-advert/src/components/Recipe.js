@@ -12,12 +12,3 @@ export const Recipe = ({ item }) => {
     </div>
   );
 };
-
-/* <p>
-        {item.ingredients
-          .split("-")
-          .filter((ingredient) => ingredient !== "")
-          .map((ingredient) => (
-            <div key={ingredient}> - {ingredient}</div>
-          ))}
-      </p> */

@@ -5,11 +5,15 @@ import { Recipes } from "./Recipes";
 import { Contact } from "./Contact";
 import { NotFound } from "./NotFound";
 
-export const Nav = () => {
+export const Nav = ({ group4Slides }) => {
   return (
     <div>
       <nav className="nav-container">
-        <h2>Group4Kitchen</h2>
+        <h2>
+          <NavLink className="nav-link" to="/">
+            Group4Kitchen
+          </NavLink>
+        </h2>
         <ul className="link-container">
           <li>
             <NavLink className="nav-link" to="/">
@@ -34,9 +38,12 @@ export const Nav = () => {
         </ul>
       </nav>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home group4Slides={group4Slides} />} />
         <Route path="/about" element={<About />} />
-        <Route path="/recipes" element={<Recipes />} />
+        <Route
+          path="/recipes"
+          element={<Recipes group4Slides={group4Slides} />}
+        />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

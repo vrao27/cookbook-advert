@@ -1,9 +1,13 @@
-export const Recipes = () => {
+import { Recipe } from "./Recipe";
+
+export const Recipes = ({ group4Slides }) => {
   return (
-    <div>
-      <ul>
-        <li></li>
-      </ul>
-    </div>
+    <>
+      <div>
+        {group4Slides.map((item) => {
+          return <Recipe item={item} />;
+        })}
+      </div>
+    </>
   );
 };

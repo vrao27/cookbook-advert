@@ -1,8 +1,23 @@
-import Group4 from "../Group4/Group4";
-export const Home = () => {
+import Group4Slide from "../Group4/Group4Slide";
+import { Recipe } from "../components/Recipe";
+export const Home = ({ group4Slides }) => {
   return (
-    <div>
-      <Group4 />
-    </div>
+    <>
+      <div>
+        {group4Slides.map((item) => {
+          const { id, slideBg, slideTitle, slideDescription } = item;
+          return (
+            <>
+              <Group4Slide
+                key={id}
+                slideTitle={slideTitle}
+                slideBg={slideBg}
+                slideDescription={slideDescription}
+              />
+            </>
+          );
+        })}
+      </div>
+    </>
   );
 };
