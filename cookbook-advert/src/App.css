@@ -29,6 +29,7 @@
 
 .about {
   text-align: center;
+  margin-top: 100px;
 }
 
 .contact {
@@ -46,4 +47,18 @@
 }
 .not-found {
   width: 20%;
+}
+
+.recipe-container {
+  width: 40%;
+  margin: 50px auto;
+}
+
+.recipe-container img {
+  width: 600px;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }

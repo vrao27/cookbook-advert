@@ -7,6 +7,7 @@ const Group4Slide = (props) => {
       <div className="textWrap">
         <h2>{slideTitle}</h2>
         <p>{slideDescription}</p>
+        <button className="check-recipe-button">Check Recipe Details</button>
       </div>
     </div>
   );

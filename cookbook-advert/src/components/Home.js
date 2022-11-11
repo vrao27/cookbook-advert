@@ -1,5 +1,4 @@
 import Group4Slide from "../Group4/Group4Slide";
-import { Recipe } from "../components/Recipe";
 export const Home = ({ group4Slides }) => {
   return (
     <>
