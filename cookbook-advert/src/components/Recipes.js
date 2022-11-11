@@ -1,3 +1,9 @@
 export const Recipes = () => {
-  return <div></div>;
+  return (
+    <div>
+      <ul>
+        <li></li>
+      </ul>
+    </div>
+  );
 };

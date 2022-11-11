@@ -1,12 +1,9 @@
-import Group4 from "./Group4/Group4";
 import "./App.css";
-import { Nav } from "./Nav";
-
+import { Nav } from "./components/Nav";
 function App() {
   return (
     <>
       <Nav />
-      <Group4 />
     </>
   );
 }

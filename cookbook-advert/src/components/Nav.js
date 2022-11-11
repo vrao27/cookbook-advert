@@ -1,8 +1,8 @@
 import { NavLink, Route, Routes } from "react-router-dom";
-import { Home } from "./components/Home";
-import { About } from "./components/About";
-import { Recipes } from "./components/Recipes";
-import { Contact } from "./components/Contact";
+import { Home } from "./Home";
+import { About } from "./About";
+import { Recipes } from "./Recipes";
+import { Contact } from "./Contact";
 
 export const Nav = () => {
   return (
@@ -20,7 +20,7 @@ export const Nav = () => {
             <NavLink to="/recipes">Recipes</NavLink>
           </li>
           <li>
-            <NavLink to="">Contact</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
           </li>
         </ul>
       </nav>

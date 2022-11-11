@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { client } from "../client";
 import Group4Slide from "./Group4Slide";
 import "./Group4.css";
-import { Recipe } from "./Recipe";
+import { Recipe } from "../components/Recipe";
 
 // console.log(client);
 
@@ -69,10 +69,10 @@ const Group4 = () => {
           return (
             <>
               <Group4Slide
+                key={id}
                 slideTitle={slideTitle}
                 slideBg={slideBg}
                 slideDescription={slideDescription}
-                key={id}
               />
               <Recipe item={item} />
             </>
