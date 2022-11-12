@@ -3,7 +3,7 @@ import Carousel from "./components/Carousel/Carousel";
 import { Route, Routes } from "react-router-dom";
 import About from "./components/About/About";
 import PageNotFound from "./components/PageNotFound";
-import Recipe from "./components/Recipe";
+import Recipe from "./Recipes/Recipe";
 import React, { useState, useEffect, useCallback } from "react";
 import { client } from "./context/client";
 import { useRef } from "react";
@@ -59,7 +59,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Carousel />} />
         <Route path="/about" element={<About />} />
-        <Route path="/recipe/:id" element={<Recipe />} />
+        <Route
+          path="/recipe/:id"
+          element={
+            <Recipe
+              title={carouselSlides.slideTitle}
+              desciption={carouselSlides.slideDescription}
+              img={carouselSlides.slideImage}
+              dat={carouselSlides}
+            />
+          }
+        />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
