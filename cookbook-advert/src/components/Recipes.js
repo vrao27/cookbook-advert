@@ -1,4 +1,5 @@
 import { Recipe } from "./Recipe";
+import { Link, Route, Routes } from "react-router-dom";
 
 export const Recipes = ({ group4Slides }) => {
   return (
@@ -11,3 +12,13 @@ export const Recipes = ({ group4Slides }) => {
     </>
   );
 };
+
+{
+  /* <div>
+  <ul>
+    <li>
+      <Link to="/"> {item.slideTitle}</Link>
+    </li>
+  </ul>
+</div>; */
+}

@@ -29,11 +29,12 @@
 
 .about {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .contact {
   text-align: center;
+  margin-top: 50px;
 }
 
 .nav-link.active {
@@ -50,12 +51,12 @@
 }
 
 .recipe-container {
-  width: 40%;
+  width: 55%;
   margin: 50px auto;
 }
 
 .recipe-container img {
-  width: 600px;
+  width: 1000px;
 }
 
 pre {
