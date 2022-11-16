@@ -2,6 +2,7 @@ import Recipes from "./components/Recipes/Recipes";
 import RecipeSlide from "./components/RecipeSlide";
 import Navbar, { NavLink } from "./components/Navbar";
 import { Headerimg } from "./assets/Headerimg";
+import ScrollButton from "./components/ScrollButton";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Navbar />
       <Recipes />
       <RecipeSlide />
+      <ScrollButton />
     </>
   );
 }
