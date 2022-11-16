@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { client } from "../../services/Client";
-import "../Recipes/Recipe.css";
 import RecipeSlide from "../RecipeSlide";
 
 const Recipes = () => {
