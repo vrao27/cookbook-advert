@@ -12,13 +12,3 @@ export const Recipes = ({ group4Slides }) => {
     </>
   );
 };
-
-{
-  /* <div>
-  <ul>
-    <li>
-      <Link to="/"> {item.slideTitle}</Link>
-    </li>
-  </ul>
-</div>; */
-}
