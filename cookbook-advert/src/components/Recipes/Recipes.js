@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { client } from "../../services/Client";
 import { createClient } from "contentful";
 import "../Recipes/Recipe.css";
-import recipeSlide from "../recipeSlide";
+import RecipeSlide from "../RecipeSlide";
 
 const Recipes = () => {
   const [isRecipeLoading, setIsRecipeLoading] = useState(false);
@@ -57,7 +57,7 @@ const Recipes = () => {
       {recipeSlides.map((item) => {
         const { id, slideBg, slideTitle, slideDescription } = item;
         return (
-          <recipeSlide
+          <RecipeSlide
             slideTitle={slideTitle}
             slideBg={slideBg}
             slideDescription={slideDescription}

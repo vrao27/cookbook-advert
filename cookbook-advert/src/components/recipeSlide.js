@@ -1,6 +1,6 @@
 import React from "react";
 
-const recipeSlide = (props) => {
+const RecipeSlide = (props) => {
   const { slideBg, slideTitle, slideDescription } = props;
   return (
     <div className="slideWrap" style={{ backgroundImage: `url(${slideBg})` }}>
@@ -12,4 +12,4 @@ const recipeSlide = (props) => {
   );
 };
 
-export default recipeSlide;
+export default RecipeSlide;
