@@ -1,4 +1,5 @@
 import Group4Slide from "../Group4/Group4Slide";
+
 export const Home = ({ group4Slides }) => {
   return (
     <>

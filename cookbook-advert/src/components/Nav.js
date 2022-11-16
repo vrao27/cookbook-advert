@@ -7,7 +7,7 @@ import { NotFound } from "./NotFound";
 
 export const Nav = ({ group4Slides }) => {
   return (
-    <div>
+    <div id="navTop">
       <nav className="nav-container">
         <h2>
           <NavLink className="nav-link" to="/">

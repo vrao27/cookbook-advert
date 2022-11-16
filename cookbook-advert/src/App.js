@@ -2,8 +2,10 @@ import "./App.css";
 import { Nav } from "./components/Nav";
 import React, { useState, useEffect, useCallback } from "react";
 import { client } from "./client";
-
 import "./Group4/Group4.css";
+// import BackToTopButton from "./components/BackToTopButton";
+// import ToTop from "./components/ToTop";
+import ScrollToTop from "react-scroll-to-top";
 
 function App() {
   const [isGrop4Loading, setIsGroup4Loading] = useState(false);
@@ -63,6 +65,8 @@ function App() {
   return (
     <>
       <Nav group4Slides={group4Slides} />
+      {/* <BackToTopButton /> */}
+      <ScrollToTop smooth />
     </>
   );
 }
