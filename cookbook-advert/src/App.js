@@ -65,7 +65,7 @@ function App() {
   return (
     <>
       <Nav group4Slides={group4Slides} />
-      {/* <BackToTopButton /> */}
+
       <ScrollToTop smooth />
     </>
   );
