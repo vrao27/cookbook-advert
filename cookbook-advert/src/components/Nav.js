@@ -34,16 +34,12 @@ export const Nav = ({ group4Slides }) => {
           </li> */}
           <li>
             <div className="dropdown">
-              <button className="dropbtn">
-                Detail<i className="fa fa-caret-down"></i>
-              </button>
+              <button className="dropbtn">Detail</button>
               <div className="dropdown-content">
-                <NavLink to="/recipes/1">R1</NavLink>
-                <Link to="/recipes/2">R2</Link>
-                <Link to="/recipes/3">R3</Link>
-                <Link to="/recipes/4">R4</Link>
-                <Link to="/recipes/5">R5</Link>
-                <Link to="/recipes/6">R6</Link>
+                {group4Slides.map((item, index) => (
+                  <Link to={`/recipes/${index}`}>{item.slideTitle}</Link>
+                ))}
+                /
               </div>
             </div>
           </li>
@@ -58,10 +54,7 @@ export const Nav = ({ group4Slides }) => {
       <Routes>
         <Route path="/" element={<Home group4Slides={group4Slides} />} />
         <Route path="/about" element={<About />} />
-        {/* <Route
-          path="/recipes"
-          element={<Recipes group4Slides={group4Slides} />}
-        /> */}
+
         <Route
           path="/recipes/:id"
           element={<Recipes group4Slides={group4Slides} />}
