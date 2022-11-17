@@ -1,14 +1,27 @@
 import { Recipe } from "./Recipe";
-import { Link, Route, Routes } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export const Recipes = ({ group4Slides }) => {
+  const { id } = useParams();
+
+  // console.log(group4Slides);
+
+  const index = id - 1;
+  // console.log(" ", index);
+  const item = group4Slides[id - 1];
+  // console.log(" ", item);
+
+  // if (!item) {
+  //   return "Loading";
+  // }
+
   return (
-    <>
-      <div>
-        {group4Slides.map((item) => {
-          return <Recipe item={item} />;
-        })}
-      </div>
-    </>
+    item && (
+      <>
+        <div>
+          <Recipe key={index} item={item} />;
+        </div>
+      </>
+    )
   );
 };

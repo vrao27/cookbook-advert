@@ -7,14 +7,13 @@ export const Home = ({ group4Slides }) => {
         {group4Slides.map((item) => {
           const { id, slideBg, slideTitle, slideDescription } = item;
           return (
-            <>
+            <div key={id}>
               <Group4Slide
-                key={id}
                 slideTitle={slideTitle}
                 slideBg={slideBg}
                 slideDescription={slideDescription}
               />
-            </>
+            </div>
           );
         })}
       </div>
