@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     font-size: 16px;
+    text-align: center;
 }
 
 body {
@@ -18,10 +19,9 @@ body {
     text-align: center;
     font-size: 1.5rem;
     padding-top: 2.5%;
-    text-align: center;
 }
 
-.img-container {
-    justify-content: center;
-    display: flex;
+img {
+    width: 50%;
+    height: auto;
 }
