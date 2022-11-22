@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { client } from "../../services/Client";
+//import { client } from "../../services/Client";
 import RecipeSlide from "../RecipeSlide";
+import axios from "axios";
 
 const Recipes = () => {
   const [isRecipeLoading, setIsRecipeLoading] = useState(false);
@@ -23,28 +24,41 @@ const Recipes = () => {
     setrecipeSlides(cleanSlides);
   }, []);
 
-  const getRecipeSlides = useCallback(async () => {
-    setIsRecipeLoading(true);
-    try {
-      const response = await client.getEntries({
-        content_type: "kitchenGroup4",
-      });
-      //return response;
-      //response data spits out at an array with the 6 different recipe entries
-      const responseData = response.items;
-      //console.log(responseData);
-      //use ternary condition here
-      responseData ? cleanUprecipeSlides(responseData) : setrecipeSlides([]);
-      setIsRecipeLoading(false);
-    } catch (error) {
-      console.log(error);
-      setIsRecipeLoading(false);
-    }
-  }, [cleanUprecipeSlides]);
+  // const getRecipeSlides = useCallback(async () => {
+  // //   setIsRecipeLoading(true);
+  //   try {
+  //       const hostURL = 'http://localhost:3000/recipes'
+  //       axios.get(`${hostURL}`).then((response) => {response.data
+  //       });
 
+  // const response = await client.getEntries({
+  //   content_type: "kitchenGroup4",
+  // }
+  //return response;
+  //response data spits out at an array with the 6 different recipe entries
+  //     const responseData = response.items;
+  //     console.log(responseData);
+  //     //use ternary condition here
+  //     responseData ? cleanUprecipeSlides(responseData) : setrecipeSlides([]);
+  //     setIsRecipeLoading(false);
+  //   } catch (error) {
+  //     console.log(error);
+  //     setIsRecipeLoading(false);
+  //   }
+  // }, [cleanUprecipeSlides]);
+
+  // useEffect(() => {
+  //   getRecipeSlides();
+  // }, [getRecipeSlides]);
   useEffect(() => {
-    getRecipeSlides();
-  }, [getRecipeSlides]);
+    getData();
+  }, []);
+  const getData = () => {
+    axios
+      .get("http://localhost:3000/")
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+  };
 
   if (isRecipeLoading) {
     return <h2>Recipe Loading...</h2>;
